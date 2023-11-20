@@ -1,3 +1,4 @@
-const displayMessage = (str) => process.stdin.write(`${str}\n`);
-
+function displayMessage(str) {
+  process.stdin.write(`${str}\n`);
+}
 module.exports = displayMessage;
