@@ -13,12 +13,12 @@ function countStudents(path) {
     res = res.filter((row) => row.length > 1);
     console.log(`Number of students: ${res.length}`);
     // seperate rows based on field [3]
-    const fields = res.reduce((grp, row) => {
-      const modifiedGrp = { ...grp };
+    const fields = res.reduce((group, row) => {
       const field = row[3];
-      modifiedGrp[field] = grp[field] || [];
-      modifiedGrp[field].push(row);
-      return modifiedGrp;
+      const grp = group;
+      grp[field] = grp[field] || [];
+      grp[field].push(row);
+      return grp;
     }, {});
     // print stat for each field
     Object.entries(fields).forEach((entry) => {
