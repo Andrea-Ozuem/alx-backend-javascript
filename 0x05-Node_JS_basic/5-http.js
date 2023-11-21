@@ -49,14 +49,19 @@ const app = http.createServer((req, res) => {
   } else if (req.url === '/students') {
     const path = process.argv[2];
     let outTxt = 'This is the list of our students\n';
-    countStudents(path)
-      .then((out) => {
-        outTxt += out;
-      })
-      .finally(() => res.end(outTxt.trim()));
+    if (!path) {
+      res.end(outTxt.trim());
+    } else {
+      countStudents(path)
+        .then((out) => {
+          outTxt += out;
+        })
+        .finally(() => res.end(outTxt.trim()));
+    }
   }
 });
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
 module.exports = app;
