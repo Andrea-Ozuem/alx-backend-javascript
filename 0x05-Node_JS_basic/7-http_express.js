@@ -36,7 +36,7 @@ async function countStudents(path) {
       outTxt += `Number of students in ${key}: ${value.length}. List:${fName}\n`;
     });
   } catch (err) {
-    console.error(err);
+    throw new Error('Cannot load the database');
   }
   return outTxt;
 }
