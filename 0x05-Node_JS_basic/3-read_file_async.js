@@ -1,4 +1,4 @@
-const fs = require('fs/promises');
+const fs = require('fs').promises;
 
 async function countStudents(path) {
   try {
@@ -7,11 +7,14 @@ async function countStudents(path) {
     data.split('\n').forEach((data) => {
       res.push(data.split(','));
     });
+
     // remove csv header
     res.shift();
+
     // remove empty lines/rows
     res = res.filter((row) => row.length > 1);
     console.log(`Number of students: ${res.length}`);
+
     // seperate rows based on field [3]
     const fields = res.reduce((group, row) => {
       const field = row[3];
@@ -20,6 +23,7 @@ async function countStudents(path) {
       grp[field].push(row);
       return grp;
     }, {});
+
     // print stat for each field
     Object.entries(fields).forEach((entry) => {
       const [key, value] = entry;
