@@ -4,12 +4,11 @@ const expect = require("chai").expect;
 const sendPaymentRequestToApi = require('./3-payment');
 
 describe('sendPaymentRequestToApi', function() {
-  const sandbox = sinon.createSandbox();
   beforeEach(function () {
-    sandbox.spy(Utils, 'calculateNumber');
+    sinon.spy(Utils, 'calculateNumber');
   });
   afterEach(function () {
-    sandbox.restore();
+    sinon.restore();
   });
   it("validate the usage of the Utils function", function() {
     sendPaymentRequestToApi(100, 20);
