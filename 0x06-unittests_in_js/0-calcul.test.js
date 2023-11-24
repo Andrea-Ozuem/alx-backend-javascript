@@ -1,5 +1,5 @@
-const calculateNumber = require("./0-calcul.js");
-const assert = require("assert");
+const calculateNumber = require("./0-calcul");
+const assert = require('assert');
 
 describe('calculateNumber', function (){
   it('return the sum of 2 int arguments', function(){
@@ -13,5 +13,8 @@ describe('calculateNumber', function (){
   });
   it('returns the sum of 2 float with decimale >= 5)', function() {
     assert.equal(calculateNumber(1.5, 3.7), 6);
+  });
+  it('returns the sum of 2 float with decimale >= 5)', function() {
+    assert.equal(calculateNumber(1.5, 3), 5);
   });
 });
