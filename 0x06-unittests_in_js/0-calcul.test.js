@@ -14,7 +14,7 @@ describe('calculateNumber', function (){
   it('returns the sum of 2 float with decimale >= 5)', function() {
     assert.equal(calculateNumber(1.5, 3.7), 6);
   });
-  it('returns the sum of 2 float with decimale >= 5)', function() {
-    assert.equal(calculateNumber(1.5, 3), 5);
+  it('returns the sum of 2 float with one rounded', function() {
+    assert.equal(calculateNumber(1.5, 3.05), 5);
   });
 });
